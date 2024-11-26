@@ -1,0 +1,383 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions</title>
+    <style>
+
+         
+        /* Global Styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: gradientMove 30s ease infinite; /* Smoother and slower gradient animation */
+            background-size: 400% 400%; /* Smooth background transition */
+            background: linear-gradient(45deg, #FFB6C1, #DDA0DD, #FF69B4); /* Soft pink, violet, and light red */
+        }
+
+        /* Gradient animation */
+        @keyframes gradientMove {
+            0% {
+                background: linear-gradient(45deg, #FFB6C1, #DDA0DD, #FF69B4); /* Soft pink, violet, light red */
+            }
+            50% {
+                background: linear-gradient(45deg, #DDA0DD, #FFB6C1, #FF69B4); /* Violet, soft pink, light red */
+            }
+            100% {
+                background: linear-gradient(45deg, #FF69B4, #DDA0DD, #FFB6C1); /* Light red, violet, soft pink */
+            }
+        }
+
+                .popup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .popup-content {
+            background-color: #fff0f5;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            max-width: 100%;
+        }
+
+        h2 {
+            color: #ff1493;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+`
+        input[type="date"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 2px solid #ff69b4;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+        padding: 12px 25px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+    }
+
+    button.happy {
+        background-color: #ff1493;
+        color: white;
+    }
+
+    button.happy:hover {
+        background-color: #ff69b4;
+    }
+
+    button.sad {
+        background-color: #ff6347;
+        color: white;
+    }
+
+    button.sad:hover {
+        background-color: #ff7f7f;
+    }
+
+    .terms-content {
+        margin: 20px 0;
+        font-size: 16px;
+        color: #464646;
+        text-align: left;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #ffb1e5;
+        border: 1px solid #ff1493;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .terms-content ol {
+        list-style-type: decimal;
+        margin-left: 20px;
+    }
+
+    .terms-content li {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    .terms-content li strong {
+        font-weight: bold;
+        color: #333333;
+    }
+
+    .actions {
+        margin-top: 30px;
+    }
+
+    .actions button {
+        margin: 10px;
+        padding: 12px 30px;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .actions .happy {
+        background-color: #ff1493;
+        color: white;
+    }
+
+    .actions .happy:hover {
+        background-color: #ff69b4;
+    }
+
+    .actions .sad {
+        background-color: #ff6347;
+        color: white;
+    }
+
+    .actions .sad:hover {
+        background-color: #ff7f7f;
+    }
+
+    #termsSection {
+    display: none; /* Initially hidden, will be shown when password is validated */
+    padding: 20px;
+    max-height: 80vh; /* Make sure it doesn't exceed 80% of the viewport height */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+    background-color: white; /* Ensure the background is white */
+    border-radius: 15px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for style */
+}
+
+#rejectPopup {
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="passwordPopup" class="popup">
+        <div class="popup-content">
+            <h2>💖 A Special Request 💖</h2>
+            <p>My love, could you kindly share the most important day of our journey together? 🌹</p>
+            <label for="dob">💫 Select the Date of Our Magical Moment:</label><br><br>
+            <input type="date" id="dob" name="dob"><br><br>
+            <button id="submitBtn" class="happy" onclick="validatePassword()">💌 Submit</button>
+        </div>
+    </div>
+
+    <div id="termsSection" class="content hidden">
+        <h2>📜 Our Love Pact 💕✨</h2>
+        <p>Before we proceed, please review our Love Pact:</p>
+        <div class="terms-content">
+            <ol>
+                <li><strong>Manisha’s Freedom</strong><br> Manisha Joshi, with her adventurous spirit, is free to meet anyone, anywhere, anytime. Whether she chooses to share her plans with Rohan or keep him guessing, he trusts her completely. Because Manisha Joshi deserves her freedom! & Rohan Chutiya hai 👑🌟</li>
+                <li><strong>Rohan’s Loving Updates</strong><br> Rohan Prajapati, as Manisha’s devoted partner, will lovingly share his plans whenever he’s meeting someone. This isn’t about rules—it’s his way of saying, “You’re always in my thoughts, my love.” 💌💞</li>
+                <li><strong>Phone Privileges</strong><br> Manisha has VIP access to Rohan’s phone whenever she desires. It’s a symbol of trust and transparency! Meanwhile, Rohan respects Manisha’s privacy and never asks the same. (Because trust + love = forever magic! 🪄✨📱)</li>
+                <li><strong>Daily Connection Time</strong><br> No distance can keep their hearts apart. Rohan promises to make Manisha feel close with:<br>
+                    - 30 minutes of sweet voice calls just to hear her lovely voice. 🎧💕<br>
+                    - 30 minutes of video calls where his eyes are only on her. 📹😍<br>
+                    - 1-2 hours of heartfelt chats at night, staying wide awake for their love. 🌙💬 (No sleeping allowed on chat duty! 😴🚫)
+                </li>
+                <li><strong>A Little More Love</strong><br> Rohan knows that Manisha deserves endless love, affection, and care. From now on, he pledges to shower her with thoughtful surprises, romantic gestures, and all the affection her heart desires. 💕🌸🌈</li>
+                <li><strong>Love Penalty Clause</strong><br> If Rohan slips up on any of his promises, he’ll gladly accept a fun punishment of Manisha’s choosing. Whether it’s a sweet treat, a love note, or a spontaneous act of affection, he’ll make it up with extra love. (Rs. 100? That’s just the start! 💸💋)</li>
+                <li><strong>Manisha’s Happiness First</strong><br> Manisha’s happiness is the compass of their relationship. If she ever feels unfulfilled, she has the freedom to prioritize herself, while Rohan promises to support her unconditionally. 🌸💖</li>
+                <li><strong>Sweet Goodnight Rituals</strong><br> Every night, Rohan will send a dreamy goodnight message to Manisha, complete with romantic emojis. Whether it’s heartfelt or playful, it’s his way of saying, “You’re my last thought before I sleep.” 🌙✨🥰</li>
+                <li><strong>Manisha’s Mood is Gold</strong><br> If Manisha is upset, Rohan will drop everything to bring back her radiant smile. Whether it’s a silly dance 💃😂, an apology song 🎶, or a heartfelt hug 🤗, he’ll do whatever it takes to brighten her day. 🌈❤️</li>
+                <li><strong>The First Apology Rule</strong><br> In any disagreement, Rohan will take the lead in saying sorry. Why? Because he knows that keeping Manisha happy is the secret to their magical world together. 🌍💕 (Plus, he just can’t resist her smile!) 😊✨</li>
+                <li><strong>Listening Hours</strong><br> When Manisha needs to share her heart, Rohan will listen with full attention. No interruptions, no advice—just love-filled nods and understanding. (Sometimes all you need is someone to really hear you. 🎧💌🥰)</li>
+                <li><strong>Weekly Meet-Up Promise</strong><br> Their weekly meetups are sacred! Rohan and Manisha promise to treasure this time together, turning each meeting into a celebration of their love. Rain or shine, nothing will keep them apart! ☀️🌧️🤝💕</li>
+                <li><strong>Manisha’s Smile Mission</strong><br> If Manisha ever feels sad or distant, Rohan will go above and beyond to make her smile. Whether it’s a surprise call 📞💖, a handwritten love note ✍️✨, or a goofy video 🎥😂, he’ll find a way to warm her heart. 🌟💝</li>
+                <li><strong>The End of Distance Promise</strong><br> By 15th January, Rohan promises to end the distance and start their new chapter together. From that moment, it’s all about creating a life side by side, full of love, laughter, and endless hugs. 🏡🤗❤️</li>
+            </ol>
+        </div>
+        <div class="actions">
+            <button onclick="acceptTerms()" class="happy">💖 I Accept</button>
+            <button onclick="rejectTerms()" class="sad">💔 I Reject</button>
+        </div>
+    </div>
+
+
+
+    <div id="thanksPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <h2>🌹 Thanks!! 🌹</h2>
+            <p>You're the best, my love! 💖</p>
+            <button id="smsButton" class="happy" onclick="sendSMS()">💌 Send "I Love You Too"</button>
+        </div>
+    </div>
+
+    <div id="rejectPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <h2>💔 Bc 💔</h2>
+            <p>Choose your option:</p>
+            <button class="sad">a</button>
+            <button class="sad">b</button>
+            <button class="sad">c</button>
+        </div>
+    </div>
+
+
+</body>
+<script>
+   window.onload = function() {
+    // Initial setup
+    document.getElementById("passwordSection").style.visibility = "visible";
+    document.getElementById("passwordSection").style.opacity = 1;
+};
+
+function validatePassword() {
+    const dobInput = document.getElementById("dob").value;
+    const correctDate = "2024-04-04"; // The correct DOB as a string in YYYY-MM-DD format
+    const submitButton = document.getElementById("submitBtn");
+
+    // Check if the input matches the correct date
+    if (dobInput === correctDate) {
+        alert("🌟 You remembered! 💖 Access granted!");
+        
+        // Change button to a happy state after successful validation
+        submitButton.classList.remove('sad');
+        submitButton.classList.add('happy');
+        submitButton.innerHTML = "💖 You Did It!";
+        
+        // Hide the password section and show the Terms and Conditions section
+        document.getElementById("passwordPopup").style.display = "none"; // This hides the popup
+        document.getElementById("termsSection").style.display = "block"; // This shows the terms section
+        
+    } else {
+        alert("💔 Oh no! The date doesn't match. Try again, my love! 🌹");
+        
+        // Change button to sad state if the date doesn't match
+        submitButton.classList.remove('happy');
+        submitButton.classList.add('sad');
+        submitButton.innerHTML = "💔 Try Again";
+    }
+}
+
+function acceptTerms() {
+            alert("🎉 You accepted the terms! Let's begin our journey! 💖");
+            document.getElementById("termsSection").style.display = "none";
+            document.getElementById("thanksPopup").style.display = "flex";
+        }
+
+      
+
+function rejectTerms() {
+    // Show reject popup when terms are rejected
+    document.getElementById("rejectPopup").style.display = "flex";
+    document.getElementById("termsSection").style.display = "none"; // Hide the terms section
+}
+
+
+function sendSMS() {
+            const phoneNumber = "+918454006590"; // The phone number
+            const message = "I Love you too 💖"; // The pre-filled message
+            window.location.href = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+        }
+
+
+        const rejectOptions = [
+            { text: "You chose option A. 💔", img: "https://via.placeholder.com/200x150?text=Option+A" },
+            { text: "You chose option C. 💔", img: "https://via.placeholder.com/200x150?text=Option+C" },
+            { text: "You chose option D. 💔", img: "https://via.placeholder.com/200x150?text=Option+D" },
+            { text: "You chose option E. 💖 Thanks a lot!", img: "https://via.placeholder.com/200x150?text=Thanks+A+Lot" },
+            { text: "You chose option F. 💔", img: "https://via.placeholder.com/200x150?text=Option+F" },
+            { text: "You chose option G. 💖 You're amazing!", img: "https://via.placeholder.com/200x150?text=You're+Amazing" },
+            { text: "You chose option H. 💔", img: "https://via.placeholder.com/200x150?text=Option+H" },
+            { text: "You chose option I. 💖", img: "https://via.placeholder.com/200x150?text=Option+I" },
+            { text: "You chose option J. 💔", img: "https://via.placeholder.com/200x150?text=Option+J" }
+        ];
+
+        // Function to generate option buttons dynamically
+        function generateOptionButtons() {
+            const rejectPopup = document.getElementById("rejectPopup");
+            const content = rejectPopup.querySelector(".popup-content");
+
+            // Remove existing buttons (if any)
+            const existingButtons = content.querySelectorAll('button');
+            existingButtons.forEach(button => button.remove());
+
+            // Add buttons for a, b, c
+            const options = ['a', 'b', 'c'];
+            options.forEach((option) => {
+                const button = document.createElement("button");
+                button.classList.add("sad");
+                button.innerText = option.toUpperCase();
+                button.onclick = function () { selectOption(option); };
+                content.appendChild(button);
+            });
+        }
+
+        // Function to get random reject option (text and image)
+        function getRandomRejectOption() {
+            const randomIndex = Math.floor(Math.random() * rejectOptions.length);
+            return rejectOptions[randomIndex];
+        }
+
+        // Function to show reject popup with random text and image
+        function selectOption(option) {
+            const rejectPopup = document.getElementById("rejectPopup");
+            const thanksPopup = document.getElementById("thanksPopup");
+            const imageContainer = rejectPopup.querySelector('.image-container') || document.createElement('div');
+            imageContainer.classList.add('image-container');
+            rejectPopup.appendChild(imageContainer);
+
+            // Clear the image container before updating
+            imageContainer.innerHTML = '';
+
+            // Check if the user selected option 'b' to show thanks popup
+            if (option === 'b') {
+                // Show thanks popup
+                thanksPopup.style.display = "flex";
+                rejectPopup.style.display = "none"; // Hide reject popup
+            } else {
+                // Update the text and image for the rejected options
+                const randomReject = getRandomRejectOption();
+                rejectPopup.querySelector("h2").innerHTML = randomReject.text;
+                const imgElement = document.createElement('img');
+                imgElement.src = randomReject.img;
+                imageContainer.appendChild(imgElement);
+
+                // Keep showing the reject popup
+                rejectPopup.style.display = "flex";
+            }
+        }
+        generateOptionButtons();    
+</script>
+</html>
