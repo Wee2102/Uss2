@@ -1,0 +1,355 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions</title>
+    <style>
+
+         
+        /* Global Styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: gradientMove 30s ease infinite; /* Smoother and slower gradient animation */
+            background-size: 400% 400%; /* Smooth background transition */
+            background: linear-gradient(45deg, #FFB6C1, #DDA0DD, #FF69B4); /* Soft pink, violet, and light red */
+        }
+
+        /* Gradient animation */
+        @keyframes gradientMove {
+            0% {
+                background: linear-gradient(45deg, #FFB6C1, #DDA0DD, #FF69B4); /* Soft pink, violet, light red */
+            }
+            50% {
+                background: linear-gradient(45deg, #DDA0DD, #FFB6C1, #FF69B4); /* Violet, soft pink, light red */
+            }
+            100% {
+                background: linear-gradient(45deg, #FF69B4, #DDA0DD, #FFB6C1); /* Light red, violet, soft pink */
+            }
+        }
+
+        .popup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .popup-content {
+            background-color: #ffa8c5;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            max-width: 100%;
+        }
+
+        h2 {
+            color: #ff1493;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: rgb(41, 41, 41);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        label {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+`
+        input[type="date"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 2px solid #ff69b4;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+        padding: 12px 25px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+    }
+
+    button.happy {
+        background-color: #ff1493;
+        color: white;
+    }
+
+    button.happy:hover {
+        background-color: #ff69b4;
+    }
+
+    button.sad {
+        background-color: #cd2297;
+        color: white;
+    }
+
+    button.sad:hover {
+        background-color: #ff7f7f;
+    }
+
+    .terms-content {
+        margin: 20px 0;
+        font-size: 16px;
+        color: #464646;
+        text-align: left;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #ffb1e5;
+        border: 1px solid #ff1493;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .terms-content ol {
+        list-style-type: decimal;
+        margin-left: 20px;
+    }
+
+    .terms-content li {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    .terms-content li strong {
+        font-weight: bold;
+        color: #333333;
+    }
+
+    .actions {
+        margin-top: 30px;
+    }
+
+    .actions button {
+        margin: 10px;
+        padding: 12px 30px;
+        font-size: 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .actions .happy {
+        background-color: #ff1493;
+        color: white;
+    }
+
+    .actions .happy:hover {
+        background-color: #ff69b4;
+    }
+
+    .actions .sad {
+        background-color: #ff6347;
+        color: white;
+    }
+
+    .actions .sad:hover {
+        background-color: #ff7f7f;
+    }
+
+    #termsSection {
+    display: none; /* Initially hidden, will be shown when password is validated */
+    padding: 20px;
+    max-height: 80vh; /* Make sure it doesn't exceed 80% of the viewport height */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+    background-color: white; /* Ensure the background is white */
+    border-radius: 15px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for style */
+    }
+
+    #rejectPopup {
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="passwordPopup" class="popup">
+        <div class="popup-content">
+            <img src="sticker01.gif" alt="Milk and Mocha" width="300">
+            <h2>Oyee Manisha Joshi !! </h2>
+            <p> Please, IK Tu Gussa hai but ek bar padhle, Please !!</p>
+            <label for="dob">💫First Movie Date. Yaad toh hai na ??</label><br><br>
+            <input type="date" id="dob" name="dob"><br><br>
+            <button id="submitBtn" class="happy" onclick="validatePassword()">💌 Submit</button>
+        </div>
+    </div>
+
+    <div id="termsSection" class="content hidden">
+        <h2>📜 Our Agreement 💕✨</h2>
+        <p>Before we proceed, please review our Love Pact:</p>
+        <div class="terms-content">
+            <ol>
+                <li><strong>Manisha’s Freedom</strong><br> Manisha Joshi, with her adventurous spirit, is free to meet anyone, anywhere, anytime. Whether she chooses to share her plans with Rohan or keep him guessing, he trusts her completely. Because Manisha Joshi deserves her freedom! & Rohan Chutiya hai 👑🌟</li>
+                <li><strong>Rohan’s Loving Updates</strong><br> Rohan Prajapati, as Manisha’s devoted partner, will lovingly share his plans whenever he’s meeting someone. This isn’t about rules—it’s his way of saying, “You’re always in my thoughts, my love.” 💌💞</li>
+                <li><strong>Phone Privileges</strong><br> Manisha has VIP access to Rohan’s phone whenever she desires. It’s a symbol of trust and transparency! Meanwhile, Rohan respects Manisha’s privacy and never asks the same. (Because trust + love = forever magic! 🪄✨📱)</li>
+                <li><strong>Daily Connection Time</strong><br> No distance can keep their hearts apart. Rohan promises to make Manisha feel close with:<br>
+                    - 30 minutes of sweet voice calls just to hear her lovely voice. 🎧💕<br>
+                    - 30 minutes of video calls where his eyes are only on her. 📹😍<br>
+                    - 1-2 hours of heartfelt chats at night, staying wide awake for their love. 🌙💬 (No sleeping allowed on chat duty! 😴🚫)
+                </li>
+                <li><strong>A Little More Love</strong><br> Rohan knows that Manisha deserves endless love, affection, and care. From now on, he pledges to shower her with thoughtful surprises, romantic gestures, and all the affection her heart desires. 💕🌸🌈</li>
+                <li><strong>Love Penalty Clause</strong><br> If Rohan slips up on any of his promises, he’ll gladly accept a fun punishment of Manisha’s choosing. Whether it’s a sweet treat, a love note, or a spontaneous act of affection, he’ll make it up with extra love. (Rs. 100? That’s just the start! 💸💋)</li>
+                <li><strong>Manisha’s Happiness First</strong><br> Manisha’s happiness is the compass of their relationship. If she ever feels unfulfilled, she has the freedom to prioritize herself, while Rohan promises to support her unconditionally. 🌸💖</li>
+                <li><strong>Sweet Goodnight Rituals</strong><br> Every night, Rohan will send a dreamy goodnight message to Manisha, complete with romantic emojis. Whether it’s heartfelt or playful, it’s his way of saying, “You’re my last thought before I sleep.” 🌙✨🥰</li>
+                <li><strong>Manisha’s Mood is Gold</strong><br> If Manisha is upset, Rohan will drop everything to bring back her radiant smile. Whether it’s a silly dance 💃😂, an apology song 🎶, or a heartfelt hug 🤗, he’ll do whatever it takes to brighten her day. 🌈❤️</li>
+                <li><strong>The First Apology Rule</strong><br> In any disagreement, Rohan will take the lead in saying sorry. Why? Because he knows that keeping Manisha happy is the secret to their magical world together. 🌍💕 (Plus, he just can’t resist her smile!) 😊✨</li>
+                <li><strong>Listening Hours</strong><br> When Manisha needs to share her heart, Rohan will listen with full attention. No interruptions, no advice—just love-filled nods and understanding. (Sometimes all you need is someone to really hear you. 🎧💌🥰)</li>
+                <li><strong>Weekly Meet-Up Promise</strong><br> Their weekly meetups are sacred! Rohan and Manisha promise to treasure this time together, turning each meeting into a celebration of their love. Rain or shine, nothing will keep them apart! ☀️🌧️🤝💕</li>
+                <li><strong>Manisha’s Smile Mission</strong><br> If Manisha ever feels sad or distant, Rohan will go above and beyond to make her smile. Whether it’s a surprise call 📞💖, a handwritten love note ✍️✨, or a goofy video 🎥😂, he’ll find a way to warm her heart. 🌟💝</li>
+                <li><strong>The End of Distance Promise</strong><br> By 15th January, Rohan promises to end the distance and start their new chapter together. From that moment, it’s all about creating a life side by side, full of love, laughter, and endless hugs. 🏡🤗❤️</li>
+            </ol>
+        </div>
+        <div class="actions">
+            <button onclick="acceptTerms()" class="happy"><img src="sticker02.gif" alt="Milk and Mocha" width="80"><br>I Accept</button>
+            <button onclick="rejectTerms()" class="sad"><img src="Sticker03.gif" alt="Milk and Mocha" width="80"><br> I Reject</button>
+        </div>
+    </div>
+
+
+
+    <div id="thanksPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <img src="Sticker04.gif" alt="Milk and Mocha" width="200">
+            <h2>I Love you Manisha Joshi !! </h2>
+            <p>Thank You, I love you Manisha Joshi. I know maine cheez kharaab kiya hai, but I promise main cheezein acchi toh nahi, but normal paka kardunga. And joh bhi likha hai maine paka rahunga.
+            </p>
+            <button id="smsButton" class="happy" onclick="sendSMS()">💌 Send "I Love You Too"</button>
+        </div>
+    </div>
+
+    <div id="rejectPopup" class="rejectPopup" style="display: none;">
+        <div class="popup-content">
+            <img src="" alt="Reject Option Image" id="rejectImage" width="200">
+            <h2>Sorry, please give me one last chance</h2>
+            <p>I know maine cheez kharaab kiya hai, but I promise main cheezein acchi toh nahi, but normal paka kardunga. And joh bhi likha hai maine paka rahunga.</p>
+            <button class="sad" onclick="selectOption('Nhi, Breakup')">Nhi, Breakup</button><br><br>
+            <button class="sad" onclick="selectOption('Thik hai, Maaf Kiya, I Love You too')">Thik hai, Maaf Kiya, I Love You too</button><br><br>
+            <button class="sad" onclick="selectOption('Jaa na')">Jaa na</button>
+        </div>
+    </div>
+
+</body>
+<script>
+   window.onload = function() {
+    // Initial setup
+    document.getElementById("passwordSection").style.visibility = "visible";
+    document.getElementById("passwordSection").style.opacity = 1;
+};
+
+function validatePassword() {
+    const dobInput = document.getElementById("dob").value;
+    const correctDate = "2024-04-04"; // The correct DOB as a string in YYYY-MM-DD format
+    const submitButton = document.getElementById("submitBtn");
+
+    // Check if the input matches the correct date
+    if (dobInput === correctDate) {
+        
+        // Change button to a happy state after successful validation
+        submitButton.classList.remove('sad');
+        submitButton.classList.add('happy');
+        submitButton.innerHTML = "💖 You Did It!";
+        
+        // Hide the password section and show the Terms and Conditions section
+        document.getElementById("passwordPopup").style.display = "none"; // This hides the popup
+        document.getElementById("termsSection").style.display = "block"; // This shows the terms section
+        
+    } else {
+        alert("💔 Oh no! The date doesn't match. Try again, my love! 🌹");
+        
+        // Change button to sad state if the date doesn't match
+        submitButton.classList.remove('happy');
+        submitButton.classList.add('sad');
+        submitButton.innerHTML = "💔 Try Again";
+    }
+}
+
+function acceptTerms() {
+            document.getElementById("termsSection").style.display = "none";
+            document.getElementById("thanksPopup").style.display = "flex";
+        }
+
+      
+
+
+
+function sendSMS() {
+            const phoneNumber = "+918454006590"; // The phone number
+            const message = "I Love you too 💖"; // The pre-filled message
+            window.location.href = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+        }
+
+
+        function rejectTerms() {
+            // Show reject popup when terms are rejected
+            document.getElementById("rejectPopup").style.display = "flex";
+            document.getElementById("termsSection").style.display = "none"; // Hide the terms section
+        }
+
+        const rejectOptions = [
+            { text: "Maan Jaa ! Please", img: "Sticker05.gif" },
+            { text: "Please Naa", img: "Sticker06.gif" },
+            { text: "I Love You naa.", img: "Sticker07.gif" },
+            { text: "Nash Kaat Lunga", img: "Sticker08.gif" },
+            { text: "Bht Marunga", img: "Sticker09.gif" },
+            { text: "Please, Please, Maan jaa", img: "Sticker10.gif" },
+            { text: "Mujhe Muka Muka mardena", img: "Sticker11.gif" },
+            { text: "Ms Pyari, Please", img: "Sticker12.gif" },
+            { text: "Meri Ms Happening hai na tu", img: "Sticker13.gif" }
+        ];
+
+        function getRandomRejectOption() {
+            const randomIndex = Math.floor(Math.random() * rejectOptions.length);
+            return rejectOptions[randomIndex];
+        }
+
+        function selectOption(option) {
+            const rejectPopup = document.getElementById("rejectPopup");
+            const thanksPopup = document.getElementById("thanksPopup");
+            const rejectImage = document.getElementById("rejectImage");
+            const rejectText = rejectPopup.querySelector("h2");
+
+            if (option === 'Thik hai, Maaf Kiya, I Love You too') {
+                // Show the Thanks Popup
+                rejectPopup.style.display = "none";
+                thanksPopup.style.display = "flex";
+            } else {
+                // Show Reject Popup with random image and text
+                const randomReject = getRandomRejectOption();
+                rejectImage.src = randomReject.img; 
+                rejectText.innerText = randomReject.text;
+                rejectPopup.style.display = "flex";
+            }
+        }
+
+</script>
+</html>
